@@ -73,6 +73,7 @@ COMMON_SRC = \
             target/config_helper.c \
             fc/init.c \
             fc/controlrate_profile.c \
+            drivers/camera_control.c \
             drivers/accgyro/gyro_sync.c \
             drivers/rx/rx_spi.c \
             drivers/rx/rx_xn297.c \
@@ -365,7 +366,6 @@ SIZE_OPTIMISED_SRC := $(SIZE_OPTIMISED_SRC) \
             drivers/compass/compass_hmc5883l.c \
             drivers/compass/compass_qmc5883l.c \
             drivers/compass/compass_lis3mdl.c \
-            drivers/compass/compass_ist8310.c \
             drivers/display_ug2864hsweg01.c \
             drivers/inverter.c \
             drivers/light_ws2811strip.c \

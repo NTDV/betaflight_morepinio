@@ -49,6 +49,8 @@ uint16_t bbBuffer[134];
 #define BITBAND_SRAM_BASE  0x22000000
 #define BITBAND_SRAM(a,b) ((BITBAND_SRAM_BASE + (((a)-BITBAND_SRAM_REF)<<5) + ((b)<<2)))  // Convert SRAM address
 
+#define DSHOT_TELEMETRY_START_MARGIN 10
+
 static uint8_t preambleSkip = 0;
 
 typedef struct bitBandWord_s {
@@ -215,13 +217,7 @@ uint32_t decode_bb_bitband( uint16_t buffer[], uint32_t count, uint32_t bit)
 #endif
 
     // The anticipated edges were observed
-
-    // Attempt to skip the preamble ahead of the telemetry to save CPU
-    if (startMargin > motorConfig()->dev.telemetryStartMargin) {
-        preambleSkip = startMargin - motorConfig()->dev.telemetryStartMargin;
-    } else {
-        preambleSkip = 0;
-    }
+    preambleSkip = startMargin - DSHOT_TELEMETRY_START_MARGIN;
 
     if (nlen > 0) {
         value <<= nlen;
@@ -329,13 +325,7 @@ FAST_CODE uint32_t decode_bb( uint16_t buffer[], uint32_t count, uint32_t bit)
     }
 
     // The anticipated edges were observed
-
-    // Attempt to skip the preamble ahead of the telemetry to save CPU
-    if (startMargin > motorConfig()->dev.telemetryStartMargin) {
-        preambleSkip = startMargin - motorConfig()->dev.telemetryStartMargin;
-    } else {
-        preambleSkip = 0;
-    }
+    preambleSkip = startMargin - DSHOT_TELEMETRY_START_MARGIN;
 
     if (nlen > 0) {
         value <<= nlen;

@@ -114,9 +114,6 @@
 #ifndef USE_MAG_AK8975
 #define USE_MAG_AK8975
 #endif
-#ifndef USE_MAG_IST8310
-#define USE_MAG_IST8310
-#endif
 
 #endif // END MAG HW defines
 

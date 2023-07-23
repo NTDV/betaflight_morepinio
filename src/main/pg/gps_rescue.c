@@ -29,7 +29,7 @@
 
 #include "gps_rescue.h"
 
-PG_REGISTER_WITH_RESET_TEMPLATE(gpsRescueConfig_t, gpsRescueConfig, PG_GPS_RESCUE, 5);
+PG_REGISTER_WITH_RESET_TEMPLATE(gpsRescueConfig_t, gpsRescueConfig, PG_GPS_RESCUE, 4);
 
 PG_RESET_TEMPLATE(gpsRescueConfig_t, gpsRescueConfig,
 
@@ -65,8 +65,7 @@ PG_RESET_TEMPLATE(gpsRescueConfig_t, gpsRescueConfig,
     .velD = 12,
     .yawP = 20,
 
-    .useMag = GPS_RESCUE_USE_MAG,
-    .imuYawGain = 10
+    .useMag = GPS_RESCUE_USE_MAG
 );
 
 #endif // USE_GPS_RESCUE

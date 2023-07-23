@@ -91,6 +91,10 @@ static const box_t boxes[CHECKBOX_ITEM_COUNT] = {
     { .boxId = BOXUSER2, .boxName = "USER2", .permanentId = 41 },
     { .boxId = BOXUSER3, .boxName = "USER3", .permanentId = 42 },
     { .boxId = BOXUSER4, .boxName = "USER4", .permanentId = 43 },
+    { .boxId = BOXUSER5, .boxName = "USER5", .permanentId = 55 },
+    { .boxId = BOXUSER6, .boxName = "USER6", .permanentId = 56 },
+    { .boxId = BOXUSER7, .boxName = "USER7", .permanentId = 57 },
+    { .boxId = BOXUSER8, .boxName = "USER8", .permanentId = 58 },
     { .boxId = BOXPIDAUDIO, .boxName = "PID AUDIO", .permanentId = 44 },
     { .boxId = BOXPARALYZE, .boxName = "PARALYZE", .permanentId = 45 },
     { .boxId = BOXGPSRESCUE, .boxName = "GPS RESCUE", .permanentId = 46 },
@@ -148,6 +152,14 @@ void serializeBoxNameFn(sbuf_t *dst, const box_t *box)
         sbufWriteString(dst, modeActivationConfig()->box_user_3_name);
     } else if (box->boxId == BOXUSER4 && strlen(modeActivationConfig()->box_user_4_name) > 0) {
         sbufWriteString(dst, modeActivationConfig()->box_user_4_name);
+    } else if (box->boxId == BOXUSER5 && strlen(modeActivationConfig()->box_user_5_name) > 0) {
+        sbufWriteString(dst, modeActivationConfig()->box_user_5_name);
+    } else if (box->boxId == BOXUSER6 && strlen(modeActivationConfig()->box_user_6_name) > 0) {
+        sbufWriteString(dst, modeActivationConfig()->box_user_6_name);
+    } else if (box->boxId == BOXUSER7 && strlen(modeActivationConfig()->box_user_7_name) > 0) {
+        sbufWriteString(dst, modeActivationConfig()->box_user_7_name);
+    } else if (box->boxId == BOXUSER8 && strlen(modeActivationConfig()->box_user_8_name) > 0) {
+        sbufWriteString(dst, modeActivationConfig()->box_user_8_name);
     } else
 #endif
     {
@@ -312,6 +324,10 @@ void initActiveBoxIds(void)
                 case BOXUSER2:
                 case BOXUSER3:
                 case BOXUSER4:
+                case BOXUSER5:
+                case BOXUSER6:
+                case BOXUSER7:
+                case BOXUSER8:
                     BME(box->boxId);
                     break;
                 default:

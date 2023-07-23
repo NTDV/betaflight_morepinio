@@ -66,6 +66,10 @@ PG_RESET_TEMPLATE(modeActivationConfig_t, modeActivationConfig,
     .box_user_2_name = { 0 },
     .box_user_3_name = { 0 },
     .box_user_4_name = { 0 },
+    .box_user_5_name = { 0 },
+    .box_user_6_name = { 0 },
+    .box_user_7_name = { 0 },
+    .box_user_8_name = { 0 },
 );
 #endif
 
